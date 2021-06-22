@@ -1,0 +1,117 @@
+﻿<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Customer Records</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a asp-action="Create" class="btn btn-sm btn-success m-2">Add Customer</a>
+                    </div>
+                </div>
+
+                <table id="order-listing" class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Gender</th>
+                            <th>Marital Status</th>
+                            <th>Mobile Number</th>
+                            <th>Physical Address</th>
+                            <th>Active Loans</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mercy Bakuwa</td>
+                            <td>23-Jan-1980</td>
+                            <td>Female</td>
+                            <td>0998316113</td>
+                            <td>Mangochi, Blantyre</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">3</label>
+                            </td>
+                            <td>
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Joseph Phiri</td>
+                            <td>3-apri-1983</td>
+                            <td>Male</td>
+                            <td>08841513151</td>
+                            <td>49, Lilongwe</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">0</label>
+                            </td>
+                            <td>
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Enock Mataya</td>
+                            <td>12-May-1975</td>
+                            <td>Male</td>
+                            <td>0998454455</td>
+                            <td>Linthipe, Salima</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">1</label>
+                            </td>
+                            <td>
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Symon Makwanda</td>
+                            <td>14-May-2000</td>
+                            <td>Male</td>
+                            <td>08844513551</td>
+                            <td>Chipoka, Ntchisi</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">3</label>
+                            </td>
+                            <td>
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Micheal Saizi </td>
+                            <td>23-Oct-1999</td>
+                            <td>Male</td>
+                            <td>0124155</td>
+                            <td>Machinjiri, Blantyre</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">3</label>
+                            </td>
+                            <td>
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Maltilda Konde</td>
+                            <td>15-Sep-1971</td>
+                            <td>Male</td>
+                            <td>09983833888</td>
+                            <td>QH, Kasungu</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">0</label>
+                            </td>
+                            <td>
+                                @*<button class="btn btn-outline-primary">View</button>*@
+                                <a asp-action="Update" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
