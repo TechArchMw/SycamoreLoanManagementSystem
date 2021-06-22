@@ -53,7 +53,35 @@ namespace SycamoreWebApp.Controllers
         {
             return View();
         }
-
+        
+        public IActionResult CalculateLoan()
+        {
+            return RedirectToAction("Create");
+        }
+       
+        [HttpGet]
+        public IEnumerable<PersonalDetail> GetAllStudents()
+        {
+            List<PersonalDetail> students = new List<PersonalDetail>
+           {
+              new PersonalDetail
+              {
+                              RegNo = "2017-0001",
+                              Name = "Nishan",
+                              Address = "Kathmandu",
+                              PhoneNo = "9849845061",
+                              AdmissionDate = DateTime.Now
+                              },
+           new PersonalDetail{
+                              RegNo = "2017-0002",
+                              Name = "Namrata Rai",
+                              Address = "Bhaktapur",
+                              PhoneNo = "9849845062",
+                              AdmissionDate = DateTime.Now
+                             },
+           };
+            return students;
+        }
         //public async Task<IActionResult> Index()
         //{
         //    var requestUrl = $"{BaseUrl}{apiUri}/GetAllLoans";

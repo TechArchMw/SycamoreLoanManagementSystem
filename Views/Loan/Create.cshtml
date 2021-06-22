@@ -1,7 +1,5 @@
 ﻿
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create"; }
 
 <div class="col-12 grid-margin">
     <div class="card">
@@ -11,6 +9,8 @@
                 @*<p class="card-description">
                         Personal info
                     </p>*@
+
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group row">
@@ -27,189 +27,37 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Title</label>
+                            <label class="col-sm-5 col-form-label">Loan Purpose</label>
                             <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Mr</option>
-                                    <option>Miss</option>
-                                    <option>Dr</option>
-                                    <option>Prof</option>
-                                    <option>Rev</option>
-                                </select>
+                                <input type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Gender</label>
+                            <label class="col-sm-12 col-form-label">Amount Applied for</label>
                             <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
+                                <input type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
+
                 </div>
+
 
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Last Name*</label>
+                            <label class="col-sm-12 col-form-label">Amount Applied for</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">First Name*</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Maiden*</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Mobile Number*</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Other Number</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">DOB</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" placeholder="dd/mm/yyyy" />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">ID Type</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Passport</option>
-                                    <option>Mzika ID</option>
-                                    <option>Drivers License</option>
-
-                                </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">ID Number</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" placeholder="GNH7839223" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Nationality</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Malawian</option>
-                                    <option>Ugandan</option>
-                                    <option>Zimbabwean</option>
-                                    <option>American</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                @*<p class="card-description">
-                        Address
-                    </p>*@
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Region</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Central</option>
-                                    <option>North</option>
-                                    <option>South</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Districts</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Blantyre</option>
-                                    <option>Chitipa</option>
-                                    <option>Lilongwe</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Village</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>Mpemba</option>
-                                    <option>Chikulamayembe</option>
-                                    <option>Chinsapo</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div class="col-md-6 justify-content-center">
-                        <div class="form-group row">
-                            <label class="col-sm-6 col-form-label">Physical/Residential address</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Work address</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                  
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Occupation</label>
+                            <label class="col-sm-12 col-form-label">Net Pay as Per Current Salary</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" />
                             </div>
@@ -217,37 +65,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-6 col-form-label">Employer's Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Department</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-              
-         
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-6 col-form-label">Work Telephone</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Date Joined</label>
+                            <label class="col-sm-12 col-form-label">Income Amount For Client</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" />
                             </div>
@@ -255,15 +73,166 @@
                     </div>
 
                 </div>
-        </form>
-        <div class="row">
-            <div class="col-12 text-right">
-                <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Draft</a>
-                <a asp-action="Create" class="btn btn-sm btn-success m-2">Submit Loan</a>
-                <a asp-action="Create" class="btn btn-sm btn-primary m-2">Calculate Loan</a>
+
+            </form>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Draft</a>
+                    <a asp-action="Create" class="btn btn-sm btn-success m-2">Submit Loan</a>
+                    @*<a asp-action="Calculate" class="btn btn-sm btn-primary m-2">Calculate Loan</a>*@
+                    <button class="btn btn-sm btn-primary m-2" onclick="myFunction()">Calculate Loan</button>
+
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+@*<div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <table id=" " class="table ">
+                        <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Installment</th>
+                                <th>Capital Repayment</th>
+                                <th>Capital Balance</th>
+                                <th>Interest Payment</th>
+                                <th>Insurance Payment</th>
+                                <th>Admin Fee</th>
+                                <th>CRIIA</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>
+                                    424,000.00
+                                </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>128,870.31</td>
+                                <td>93,678.31</td>
+                                <td>303,321.69</td>
+                                <td>19,080.00</td>
+                                <td>3,392.00</td>
+                                <td>12,720.00</td>
+                                <td>
+                                    128,870.31
+                                </td>
+
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>*@
+@*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+<button id="button" value="val_2" name="but2">button 2</button>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Test Data from API
+    </div>   <!--en dof panel-heading -->
+    <div class="panel-body">
+        <table class="table table-bordered" id="Table">
+            <tr >
+                <th>Regd No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone No</th>
+                <th>Admission Date</th>
+            </tr>   <!--end of table-row -->
+        </table>   <!--end of table -->
+    </div> <!--end of Panel-body -->
+</div> <!--end of Panel -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    function myFunction() {
+        $(document).ready(function () {
+        
+            $.ajax({
+                type: "GET",
+                url: "GetAllStudents",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+                    $("#DIV").html("");
+                    var DIV = '';
+                   
+                    $.each(data, function (i, item) {
+                        var rows = "<tr>" +
+                            "<td id='RegdNo'>" + item.regNo + "</td>" +
+                            "<td id='Name'>" + item.name + "</td>" +
+                            "<td id='Address'>" + item.address + "</td>" +
+                            "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
+                            "<td id='AdmissionDate'>" + Date(item.admissionDate,
+                                "dd-MM-yyyy") + "</td>" +
+                            "</tr>";
+                        $('#Table').append(rows);
+                    }); //End of foreach Loop
+                    console.log(data);
+                }, //End of AJAX Success function
+
+                failure: function (data) {
+                    alert(data.responseText);
+                }, //End of AJAX failure function
+                error: function (data) {
+                    alert(data.responseText);
+                } //End of AJAX error function
+
+            });
+        });
+    }
+</script>
+@*<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "GetAllStudents",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                //alert(JSON.stringify(data));
+                $("#DIV").html('');
+                var DIV = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tr>" +
+                        "<td id='RegdNo'>" + item.regNo + "</td>" +
+                        "<td id='Name'>" + item.name + "</td>" +
+                        "<td id='Address'>" + item.address + "</td>" +
+                        "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
+                        "<td id='AdmissionDate'>" + Date(item.admissionDate,
+                            "dd-MM-yyyy") + "</td>" +
+                        "</tr>";
+                    $('#Table').append(rows);
+                }); //End of foreach Loop
+                console.log(data);
+            }, //End of AJAX Success function
+
+            failure: function (data) {
+                alert(data.responseText);
+            }, //End of AJAX failure function
+            error: function (data) {
+                alert(data.responseText);
+            } //End of AJAX error function
+
+        });
+    });
+</script>*@
