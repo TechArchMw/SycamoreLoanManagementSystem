@@ -144,11 +144,11 @@
 @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
 <button id="button" value="val_2" name="but2">button 2</button>
 
-<div class="panel panel-primary">
+<!--<div class="panel panel-primary">
     <div class="panel-heading">
         Test Data from API
-    </div>   <!--en dof panel-heading -->
-    <div class="panel-body">
+    </div>-->   <!--en dof panel-heading -->
+    <!--<div class="panel-body">
         <table class="table table-bordered" id="Table">
             <tr >
                 <th>Regd No</th>
@@ -156,10 +156,26 @@
                 <th>Address</th>
                 <th>Phone No</th>
                 <th>Admission Date</th>
-            </tr>   <!--end of table-row -->
-        </table>   <!--end of table -->
-    </div> <!--end of Panel-body -->
-</div> <!--end of Panel -->
+            </tr>-->   <!--end of table-row -->
+        <!--</table>-->   <!--end of table -->
+    <!--</div>--> <!--end of Panel-body -->
+<!--</div>--> <!--end of Panel -->
+
+<table id="myTableId">
+    <thead>
+        <tr>
+            <th>Regd Noeee</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone No</th>
+            <th>Admission Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
@@ -173,19 +189,19 @@
                 dataType: "json",
                 success: function (data) {
                     //alert(JSON.stringify(data));
-                    $("#DIV").html("");
+                    $("#DIV").html('');
                     var DIV = '';
-                   
+                    $('#myTableId tbody').empty();
                     $.each(data, function (i, item) {
-                        var rows = "<tr>" +
-                            "<td id='RegdNo'>" + item.regNo + "</td>" +
+                        var rows ="tbody" + "<tr>" +
+                            "<td id='RegdNo2'>" + item.regNo + "</td>" +
                             "<td id='Name'>" + item.name + "</td>" +
                             "<td id='Address'>" + item.address + "</td>" +
                             "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
                             "<td id='AdmissionDate'>" + Date(item.admissionDate,
                                 "dd-MM-yyyy") + "</td>" +
-                            "</tr>";
-                        $('#Table').append(rows);
+                            "</tr>" + "/tbody";
+                        $('#myTableId').append(rows);
                     }); //End of foreach Loop
                     console.log(data);
                 }, //End of AJAX Success function
