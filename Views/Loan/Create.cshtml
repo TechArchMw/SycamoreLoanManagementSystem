@@ -1,11 +1,12 @@
-﻿
+﻿@model SycamoreWebApp.DTOs.LoanDTO
+
 @{ ViewData["Title"] = "Create"; }
 
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Loan Details</h4>
-            <form class="form-sample">
+            <form class="form-sample" asp-action="Create" method="post">
                 @*<p class="card-description">
                         Personal info
                     </p>*@
@@ -29,7 +30,7 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Loan Purpose</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="PurposeOfLoan" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,7 @@
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Amount Applied for</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="Amount" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -48,9 +49,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-12 col-form-label">Amount Applied for</label>
+                            <label class="col-sm-12 col-form-label">Period</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="Period" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -79,7 +80,6 @@
                 <div class="col-12 text-right">
                     <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Draft</a>
                     <a asp-action="Create" class="btn btn-sm btn-success m-2">Submit Loan</a>
-                    @*<a asp-action="Calculate" class="btn btn-sm btn-primary m-2">Calculate Loan</a>*@
                     <button class="btn btn-sm btn-primary m-2" onclick="myFunction()">Calculate Loan</button>
 
                 </div>
@@ -87,157 +87,108 @@
         </div>
     </div>
 </div>
-@*<div class="row">
-        <div class="col-12 grid-margin">
-            <div class="card">
-                <div class="card-body">
-                    <table id=" " class="table ">
-                        <thead>
-                            <tr>
-                                <th>Period</th>
-                                <th>Installment</th>
-                                <th>Capital Repayment</th>
-                                <th>Capital Balance</th>
-                                <th>Interest Payment</th>
-                                <th>Insurance Payment</th>
-                                <th>Admin Fee</th>
-                                <th>CRIIA</th>
+ 
+ 
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>
-                                    424,000.00
-                                </td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>128,870.31</td>
-                                <td>93,678.31</td>
-                                <td>303,321.69</td>
-                                <td>19,080.00</td>
-                                <td>3,392.00</td>
-                                <td>12,720.00</td>
-                                <td>
-                                    128,870.31
-                                </td>
-
-
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </div>
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body p-1">
+            <h4 class="card-title">Loan Repayment Calculation</h4>
+            <table id="myTableId" class="table">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Installment</th>
+                        <th>CapitalRepayment</th>
+                        <th>CapitalBalance</th>
+                        <th>InterestPayment</th>
+                        <th>InsurancePayment</th>
+                        <th>AdminFee</th>
+                        <th>CRIIA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
             </div>
         </div>
-    </div>*@
-@*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
-<button id="button" value="val_2" name="but2">button 2</button>
+    </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
- 
-<table id="myTableId" class="table">
-    <thead>
-        <tr>
-            <th>Period</th>
-            <th>Installment</th>
-            <th>Capital Repayment</th>
-            <th>Capital Balance</th>
-            <th>Interest Payment</th>
-            <th>Insurance Payment</th>
-            <th>Admin Fee</th>
-            <th>CRIIA</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-</table>
+            <script>
+                function myFunction() {
+                    $(document).ready(function () {
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                        $.ajax({
+                            type: "GET",
+                            url: "LoanRepaymentSchedule",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                //alert(JSON.stringify(data));
+                                $("#DIV").html('');
+                                var DIV = '';
+                                $('#myTableId tbody').empty();
+                                $.each(data, function (i, item) {
+                                    var rows = "<tbody>" + "<tr class='font-weight-bold'>" +
+                                        "<td  id='period'>" + item.period + "</td>" +
+                                        "<td id='Installment'>" + item.installment + "</td>" +
+                                        "<td id='CapitalRepayment'>" + item.capitalRepayment + "</td>" +
+                                        "<td id='CapitalBalance'>" + item.capitalBalance + "</td>" +
+                                        "<td id='InterestPayment'>" + item.interestPayment + "</td>" +
+                                        "<td id='InsurancePayment'>" + item.insurancePayment + "</td>" +
+                                        "<td id='AdminFee'>" + item.adminFee + "</td>" +
+                                        "<td id='CRIIA'>" + item.criia + "</td>" +
+                                        "</td>" +
+                                        "</tr>" + "</tbody>";
+                                    $('#myTableId').append(rows);
+                                }); //End of foreach Loop
+                                console.log(data);
+                            }, //End of AJAX Success function
 
-<script>
-    function myFunction() {
-        $(document).ready(function () {
-        
-            $.ajax({
-                type: "GET",
-                url: "GetAllStudents",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    //alert(JSON.stringify(data));
-                    $("#DIV").html('');
-                    var DIV = '';
-                    $('#myTableId tbody').empty();
-                    $.each(data, function (i, item) {
-                        var rows = "<tbody>" + "<tr class='font-weight-bold'>" +
-                            "<td  id='Period'>" + item.regNo + "</td>" +
-                            "<td id='Installment'>" + item.name + "</td>" +
-                            "<td id='Capital Repayment'>" + item.address + "</td>" +
-                            "<td id='Interest Payment'>" + item.phoneNo + "</td>" +
-                            "<td id='Insurance Payment'>" + item.address + "</td>" +
-                            "<td id='Admin Fee'>" + item.address + "</td>" +
-                            "<td id='CRIIA'>" + item.name + "</td>" +
-                            "</td>" +
-                            "</tr>" + "</tbody>";
-                        $('#myTableId').append(rows);
-                    }); //End of foreach Loop
-                    console.log(data);
-                }, //End of AJAX Success function
+                            failure: function (data) {
+                                alert(data.responseText);
+                            }, //End of AJAX failure function
+                            error: function (data) {
+                                alert(data.responseText);
+                            } //End of AJAX error function
 
-                failure: function (data) {
-                    alert(data.responseText);
-                }, //End of AJAX failure function
-                error: function (data) {
-                    alert(data.responseText);
-                } //End of AJAX error function
+                        });
+                    });
+                }
+            </script>
+            @*<script>
+                    $(document).ready(function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "GetAllStudents",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                //alert(JSON.stringify(data));
+                                $("#DIV").html('');
+                                var DIV = '';
+                                $.each(data, function (i, item) {
+                                    var rows = "<tr>" +
+                                        "<td id='RegdNo'>" + item.regNo + "</td>" +
+                                        "<td id='Name'>" + item.name + "</td>" +
+                                        "<td id='Address'>" + item.address + "</td>" +
+                                        "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
+                                        "<td id='AdmissionDate'>" + Date(item.admissionDate,
+                                            "dd-MM-yyyy") + "</td>" +
+                                        "</tr>";
+                                    $('#Table').append(rows);
+                                }); //End of foreach Loop
+                                console.log(data);
+                            }, //End of AJAX Success function
 
-            });
-        });
-    }
-</script>
-@*<script>
-    $(document).ready(function () {
-        $.ajax({
-            type: "GET",
-            url: "GetAllStudents",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                //alert(JSON.stringify(data));
-                $("#DIV").html('');
-                var DIV = '';
-                $.each(data, function (i, item) {
-                    var rows = "<tr>" +
-                        "<td id='RegdNo'>" + item.regNo + "</td>" +
-                        "<td id='Name'>" + item.name + "</td>" +
-                        "<td id='Address'>" + item.address + "</td>" +
-                        "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
-                        "<td id='AdmissionDate'>" + Date(item.admissionDate,
-                            "dd-MM-yyyy") + "</td>" +
-                        "</tr>";
-                    $('#Table').append(rows);
-                }); //End of foreach Loop
-                console.log(data);
-            }, //End of AJAX Success function
+                            failure: function (data) {
+                                alert(data.responseText);
+                            }, //End of AJAX failure function
+                            error: function (data) {
+                                alert(data.responseText);
+                            } //End of AJAX error function
 
-            failure: function (data) {
-                alert(data.responseText);
-            }, //End of AJAX failure function
-            error: function (data) {
-                alert(data.responseText);
-            } //End of AJAX error function
-
-        });
-    });
-</script>*@
+                        });
+                    });
+                </script>*@

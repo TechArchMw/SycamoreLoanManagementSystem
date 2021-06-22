@@ -10,6 +10,7 @@ namespace SycamoreWebApp.DTOs
         public long LoanId { get; set; }
         public int? LoanTypeId { get; set; }
         public string PurposeOfLoan { get; set; }
+        public string Period { get; set; }
         public decimal? Amount { get; set; }
         public decimal? BasicSalary { get; set; }
         public decimal? NetSalaryAsPerCurrentPaySlip { get; set; }

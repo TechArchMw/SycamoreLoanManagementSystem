@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
- 
+using SycamoreWebApp.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -53,35 +53,44 @@ namespace SycamoreWebApp.Controllers
         {
             return View();
         }
-        
+
         public IActionResult CalculateLoan()
         {
             return RedirectToAction("Create");
         }
-       
+
         [HttpGet]
-        public IEnumerable<PersonalDetail> GetAllStudents()
+        public IEnumerable<LoanRepaymentScheduleDTO> LoanRepaymentSchedule(LoanDTO loan)
         {
-            List<PersonalDetail> students = new List<PersonalDetail>
+            List<LoanRepaymentScheduleDTO> students = new List<LoanRepaymentScheduleDTO>
            {
-              new PersonalDetail
+              new LoanRepaymentScheduleDTO
               {
-                              RegNo = "2017-0001",
-                              Name = "Nishan",
-                              Address = "Kathmandu",
-                              PhoneNo = "9849845061",
-                              AdmissionDate = DateTime.Now
+                  Period = 0,
+                  Installment = 0,
+                  CapitalRepayment  = 424000,
+                  CapitalBalance  = 0,
+                  InterestPayment = 0,
+                  AdminFee = 0,
+                  CRIIA = 0,
+
+
                               },
-           new PersonalDetail{
-                              RegNo = "2017-0002",
-                              Name = "Namrata Rai",
-                              Address = "Bhaktapur",
-                              PhoneNo = "9849845062",
-                              AdmissionDate = DateTime.Now
+           new LoanRepaymentScheduleDTO{
+
+                  Period = 0,
+                  Installment = 128000,
+                  CapitalRepayment  = 930000,
+                  CapitalBalance  = 19080,
+                  InterestPayment = 300,
+                  AdminFee = 131212,
+                  CRIIA = 56151
                              },
            };
             return students;
         }
+
+
         //public async Task<IActionResult> Index()
         //{
         //    var requestUrl = $"{BaseUrl}{apiUri}/GetAllLoans";
