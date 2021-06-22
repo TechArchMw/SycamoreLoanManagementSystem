@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SycamoreWebApp", "SycamoreWebApp.csproj", "{B4C905DF-A6BE-4FBA-B22E-5A3BED7216B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SycamoreWebApp", "SycamoreWebApp.csproj", "{B4C905DF-A6BE-4FBA-B22E-5A3BED7216B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SycamoreWebWebApi", "..\SycamoreWebWebApi\SycamoreWebWebApi.csproj", "{2AAD7DA6-5820-4435-BCEB-5CFB4DF12304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B4C905DF-A6BE-4FBA-B22E-5A3BED7216B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4C905DF-A6BE-4FBA-B22E-5A3BED7216B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4C905DF-A6BE-4FBA-B22E-5A3BED7216B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AAD7DA6-5820-4435-BCEB-5CFB4DF12304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AAD7DA6-5820-4435-BCEB-5CFB4DF12304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AAD7DA6-5820-4435-BCEB-5CFB4DF12304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AAD7DA6-5820-4435-BCEB-5CFB4DF12304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
