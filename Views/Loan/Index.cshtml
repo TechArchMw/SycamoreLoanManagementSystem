@@ -1,0 +1,109 @@
+﻿<!-- plugins:css -->
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Loans</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a asp-action="Create" class="btn btn-sm btn-success m-2">Add Loan</a>
+                    </div>
+                </div>
+
+                <table id="order-listing" class="table">
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Loan Type</th>
+                            <th>Customer</th>
+                            <th>Loan Amount</th>
+                            <th>Interest</th>
+                            <th>Admin Fee</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>MZ1</td>
+                            <td>Grace Phiri</td>
+                            <td>K2,500,000.00</td>
+                            <td>15%</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MZ2</td>
+                            <td>Peter Phiri</td>
+                            <td>K500,00.00</td>
+                            <td>15%</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-info">On hold</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MZ2</td>
+                            <td>Yohane Bizwik</td>
+                            <td>K7,000,000.00</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                            <td>
+                                <label class="badge badge-info">On hold</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MZ2</td>
+
+                            <td>Gift tchoka</td>
+                            <td>K2,500,00</td>
+                            <td>15%</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-danger">Pending</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>MZ2</td>
+
+                            <td>Micheal Banda</td>
+                            <td>K2,500,00</td>
+                            <td>15%</td>
+                            <td>-</td>
+                            <td>
+                                <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- plugins:js -->

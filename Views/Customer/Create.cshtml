@@ -1,0 +1,257 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Customer Details</h4>
+            <form class="form-sample">
+                @*<p class="card-description">
+                        Personal info
+                    </p>*@
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Title</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Mr</option>
+                                    <option>Miss</option>
+                                    <option>Dr</option>
+                                    <option>Prof</option>
+                                    <option>Rev</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Last Name*</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">First Name*</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Maiden*</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Mobile Number*</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Other Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">DOB</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="dd/mm/yyyy" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">ID Type</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Passport</option>
+                                    <option>Mzika ID</option>
+                                    <option>Drivers License</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">ID Number</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="GNH7839223" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Nationality</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Malawian</option>
+                                    <option>Ugandan</option>
+                                    <option>Zimbabwean</option>
+                                    <option>American</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @*<p class="card-description">
+                        Address
+                    </p>*@
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Region</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Central</option>
+                                    <option>North</option>
+                                    <option>South</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Districts</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Blantyre</option>
+                                    <option>Chitipa</option>
+                                    <option>Lilongwe</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Village</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option>Mpemba</option>
+                                    <option>Chikulamayembe</option>
+                                    <option>Chinsapo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 justify-content-center">
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Physical/Residential address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Work address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Occupation</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Employer's Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Department</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Work Telephone</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Date Joined</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <a asp-action="Index" class="btn btn-sm btn-secondary m-2">Back to List</a>
+                    <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Customer</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
