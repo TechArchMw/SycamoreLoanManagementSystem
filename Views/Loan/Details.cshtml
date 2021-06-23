@@ -1,0 +1,183 @@
+﻿@model SycamoreWebApp.DTOs.LoanDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+ 
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Loan Details</h4>
+            @if (Model.OutputHandler.IsErrorOccured)
+            {
+                <p class="text-danger"> @Model.OutputHandler.Message</p>
+            }
+            else
+            {
+                <p class="text-success"> @Model.OutputHandler.Message</p>
+            }
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Loan Status</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.LoanStatus
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Customer Name</label>
+                        <div class="col-sm-12 font-weight-bold">
+                            @Model.CustomerName
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Loan Type</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.LoanTypeDTO.LoanDescription
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Loan Purpose</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.PurposeOfLoan
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Amount Applied for</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.Amount
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Period</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.Period
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Basic Salary</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.BasicSalary
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Net SalaryAs PerCurrent PaySlip</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.NetSalaryAsPerCurrentPaySlip
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Total Loan Amount</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.TotalLoanAmount
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Captured By</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.CreatedBy
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Date Captured</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.DateCreated
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Modified By</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.ModifiedBy
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Modified Date</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.DateModified
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Date Captured</label>
+                        <div class="col-sm-9 font-weight-bold">
+                            @Model.DateCreated
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div>
+
+            @if (Model.loanStatusId == 1)
+            {
+                <a class="m-2 btn btn-sm btn-secondary " asp-route-loanId="@Model.LoanId" asp-action="ReviewLoan">Mark as Reviewed</a>
+                <a class="m-2 btn btn-sm btn-success" asp-route-loanId="@Model.LoanId" asp-action="ApproveLoan">Approved</a>
+                <a class="m-2 btn btn-sm btn-danger" asp-route-loanId="@Model.LoanId" asp-action="RejectLoan">Reject</a>
+                <a class="m-2 btn btn-sm btn-primary" asp-route-loanId="@Model.LoanId" asp-action="CloseLoan">Closed</a>
+            }
+            else if (Model.loanStatusId == 2 || Model.loanStatusId == 3)
+            {
+                <a class=" m-2 btn btn-sm btn-primary" asp-route-loanId="@Model.LoanId" asp-action="CloseLoan">Close</a>
+            }
+            else if (Model.loanStatusId == 4)
+            {
+                <a class="m-2 btn btn-sm btn-success" asp-route-loanId="@Model.LoanId" asp-action="RecreateLoan">Create as New Loan</a>
+            }
+            else if (Model.loanStatusId == 7)
+            {
+                <a class="m-2 btn btn-sm btn-secondary " asp-route-loanId="@Model.LoanId" asp-action="ReviewLoan">Mark as Reviewed</a>
+             }
+            @*<input type="submit" value="Submit" />*@
+
+            
+            <a class="m-2 btn btn-sm btn-success" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
