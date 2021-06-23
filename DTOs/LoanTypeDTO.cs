@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SycamoreWebApp.DTOs
 {
@@ -9,7 +6,7 @@ namespace SycamoreWebApp.DTOs
     {
         public int LoanTypeId { get; set; }
         public string LoanDescription { get; set; }
-        public decimal? ProcessingFee { get; set; }
+        public decimal ProcessingFee { get; set; }
         public decimal? Interest { get; set; }
         public decimal? AdminFee { get; set; }
         public decimal? Eir { get; set; }

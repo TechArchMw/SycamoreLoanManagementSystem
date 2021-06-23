@@ -1,4 +1,4 @@
-﻿
+﻿@model SycamoreWebApp.DTOs.LoanTypeDTO
 @{
     ViewData["Title"] = "Update";
 }
@@ -7,17 +7,14 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Loan Type</h4>
-            <form class="form-sample">
-                @*<p class="card-description">
-                        Personal info
-                    </p>*@
+            <form method="post" asp-action="Create" class="form-sample">
                 <div class="row">
 
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Loan Description </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="LoanDescription" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -25,7 +22,7 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Processing Fee</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="ProcessingFee" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -36,7 +33,7 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Interest</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="Interest" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -44,15 +41,15 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Admin Fee</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="AdminFee" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Period In Months</label>
+                            <label class="col-sm-5 col-form-label">Effective Interest Rate</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" />
+                                <input asp-for="Eir" type="text" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -63,7 +60,7 @@
                     <div class="col-sm-4">
                         <div class="form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                                <input asp-for="IsActive" type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
                                 Activate
                             </label>
                         </div>
@@ -71,7 +68,7 @@
                     <div class="col-sm-4">
                         <div class="form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                                <input asp-for="IsArchived" type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
                                 Archive
                             </label>
                         </div>
@@ -79,15 +76,13 @@
 
 
                 </div>
-
-            </form>
-            <div class="row">
-                <div class="col-12 text-right">
-                    <a asp-action="Index" class="btn btn-sm btn-secondary m-2">Back to List</a>
-                    <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Customer</a>
-
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button asp-action="Index" class="btn btn-sm btn-secondary m-2">Back to List</button>
+                        <button type="submit" class="btn btn-sm btn-success m-2">Save Customer</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

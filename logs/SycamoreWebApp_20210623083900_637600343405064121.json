@@ -1,0 +1,38 @@
+{
+  "EventType": "GET:https://localhost:44384/LoanType/Update/images/Logo.png",
+  "Environment": {
+    "UserName": "user",
+    "MachineName": "DESKTOP-MM1P7OO",
+    "DomainName": "DESKTOP-MM1P7OO",
+    "CallingMethodName": "System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start()",
+    "AssemblyName": "System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "Culture": "en-US"
+  },
+  "StartDate": "2021-06-23T08:39:00.4821847Z",
+  "EndDate": "2021-06-23T08:39:00.506399Z",
+  "Duration": 24,
+  "Action": {
+    "TraceId": "8000001f-0000-ee00-b63f-84710c7967bb",
+    "HttpMethod": "GET",
+    "RequestUrl": "https://localhost:44384/LoanType/Update/images/Logo.png",
+    "IpAddress": "127.0.0.1",
+    "ResponseStatus": "Not Found",
+    "ResponseStatusCode": 404,
+    "RequestBody": {},
+    "ResponseBody": {
+      "Value": ""
+    },
+    "Headers": {
+      "Accept": "image/webp,*/*",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept-Language": "en-US,en;q=0.5",
+      "Connection": "close",
+      "Cookie": ".AspNetCore.Antiforgery.PGh47HKw0L8=CfDJ8A6waCO4zwBIifKcGG202BdKJOGxVjPB1cPVB42AhlJS1gcyGWXr8DblMb5H31f4uE3NNJ27qFarqAzOqqfZYU1Bdorov-b37Rw86NWx7slD7y1ZzHY7KlP9VT5115HaDBBPK6TUU5G_WOKMd2Xf-tY",
+      "Host": "localhost:44384",
+      "Referer": "https://localhost:44384/LoanType/Update/0",
+      "Te": "trailers",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"
+    },
+    "ResponseHeaders": {}
+  }
+}

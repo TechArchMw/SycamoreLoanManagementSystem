@@ -1,0 +1,32 @@
+{
+  "EventType": "GET:https://localhost:44384/LoanType/Update/images/Logo.png",
+  "Environment": {
+    "UserName": "user",
+    "MachineName": "DESKTOP-MM1P7OO",
+    "DomainName": "DESKTOP-MM1P7OO",
+    "CallingMethodName": "System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start()",
+    "AssemblyName": "System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "Culture": "en-US"
+  },
+  "StartDate": "2021-06-23T08:39:36.7988426Z",
+  "EndDate": "2021-06-23T08:39:36.7989199Z",
+  "Duration": 0,
+  "Action": {
+    "TraceId": "80000017-0001-f800-b63f-84710c7967bb",
+    "HttpMethod": "GET",
+    "RequestUrl": "https://localhost:44384/LoanType/Update/images/Logo.png",
+    "IpAddress": "::1",
+    "ResponseStatus": "Not Found",
+    "ResponseStatusCode": 404,
+    "RequestBody": {},
+    "ResponseBody": {
+      "Value": ""
+    },
+    "Headers": {
+      "Accept-Encoding": "gzip, deflate",
+      "Host": "localhost:44384",
+      "User-Agent": "Visual Studio/16.8 (JSON Editor; ASP.NET and Web Tools/16.8.557.25636)"
+    },
+    "ResponseHeaders": {}
+  }
+}
