@@ -1,0 +1,32 @@
+{
+  "EventType": "LoanType/Update (GET)",
+  "Environment": {
+    "UserName": "user",
+    "MachineName": "DESKTOP-MM1P7OO",
+    "DomainName": "DESKTOP-MM1P7OO",
+    "CallingMethodName": "SycamoreWebApplication.Controllers.LoanTypeController.Update()",
+    "AssemblyName": "SycamoreWebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "Culture": "en-US"
+  },
+  "StartDate": "2021-06-23T08:38:47.7443062Z",
+  "EndDate": "2021-06-23T08:39:00.1649922Z",
+  "Duration": 12421,
+  "Action": {
+    "TraceId": "8000000e-0001-f800-b63f-84710c7967bb",
+    "HttpMethod": "GET",
+    "ControllerName": "LoanType",
+    "ActionName": "Update",
+    "ActionParameters": {
+      "id": 0
+    },
+    "RequestUrl": "https://localhost:44384/LoanType/Update/0",
+    "IpAddress": "127.0.0.1",
+    "ResponseStatus": "OK",
+    "ResponseStatusCode": 200,
+    "RequestBody": {},
+    "ResponseBody": {
+      "Type": "ViewResult"
+    },
+    "ModelStateValid": true
+  }
+}

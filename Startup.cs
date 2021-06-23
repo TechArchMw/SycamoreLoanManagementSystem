@@ -1,3 +1,4 @@
+using Audit.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,6 +43,10 @@ namespace SycamoreWebApp
             //services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddControllersWithViews();
+            services.AddMvcCore(mvc =>
+            {
+                mvc.Filters.Add(new AuditIgnoreActionFilter());
+            });
         }
 
 
@@ -73,6 +78,21 @@ namespace SycamoreWebApp
                     pattern: "{controller=Account}/{action=Login}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            #region Audit manager
+            app.UseAuditMiddleware(_ => _
+                        .FilterByRequest(rq => !rq.Path.Value.EndsWith("favicon.ico"))
+                        .WithEventType("{verb}:{url}")
+                        .IncludeHeaders()
+                        .IncludeResponseHeaders()
+                        .IncludeRequestBody()
+                        .IncludeResponseBody());
+
+            Audit.Core.Configuration.Setup()
+             .UseFileLogProvider(config => config
+             .FilenamePrefix("SycamoreWebApp_")
+             .Directory(@"logs\"));
+            #endregion
         }
     }
 }
