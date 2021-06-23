@@ -1,6 +1,7 @@
 ﻿@model SycamoreWebApp.DTOs.LoanDTO
-
-@{ ViewData["Title"] = "Create"; }
+@{
+    ViewData["Title"] = "RecreateLoan";
+}
 
 <div class="col-12 grid-margin">
     <div class="card">
@@ -8,95 +9,90 @@
             <h4 class="card-title">Loan Details</h4>
             @if (Model.OutputHandler.IsErrorOccured)
             {
-                <p class="text-danger"> @Model.OutputHandler.Message</p>
+                <p class="red"> @Model.OutputHandler.Message</p>
             }
-            else
-            {
-                <p class="text-success"> @Model.OutputHandler.Message</p>
-            }
-            <form class="form-sample" asp-action="Create" method="post" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Customer</label>
-                            <div class="col-sm-9">
-                                <select asp-for="Name" class="form-control">
-                                    <option>Micheal Banda</option>
-                                    <option>John Chisale</option>
-                                    <option>Mateyu Biswick</option>
-                                    <option>Manta Kada</option>
-                                </select>
-                            </div>
+        <form class="form-sample" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Customer</label>
+                        <div class="col-sm-9">
+                            <select asp-for="Name" class="form-control">
+                                <option>Micheal Banda</option>
+                                <option>John Chisale</option>
+                                <option>Mateyu Biswick</option>
+                                <option>Manta Kada</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+            </div>
+            <div class="row">
 
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Loan Type</label>
-                            <div class="col-sm-9">
-                                <select asp-for="LoanTypeId" class="form-control">
-                                    <option>Mizu</option>
-                                    <option>Tsinde</option>
-                                    <option>Masamba</option>
-                                    <option>Chitsamba</option>
-                                </select>
-                            </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Loan Type</label>
+                        <div class="col-sm-9">
+                            <select asp-for="LoanTypeId" class="form-control">
+                                <option>Mizu</option>
+                                <option>Tsinde</option>
+                                <option>Masamba</option>
+                                <option>Chitsamba</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Loan Purpose</label>
-                            <div class="col-sm-9">
-                                <input required asp-for="PurposeOfLoan" type="text" class="form-control" />
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label">Loan Purpose</label>
+                        <div class="col-sm-9">
+                            <input required asp-for="PurposeOfLoan" type="text" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-form-label">Amount Applied for</label>
-                            <div class="col-sm-9">
-                                <input required asp-for="Amount" type="text" class="form-control" />
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Amount Applied for</label>
+                        <div class="col-sm-9">
+                            <input required asp-for="Amount" type="text" class="form-control" />
                         </div>
                     </div>
-
                 </div>
 
+            </div>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-form-label">Period</label>
-                            <div class="col-sm-9">
-                                <input required asp-for="Period" type="text" class="form-control" />
-                            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Period</label>
+                        <div class="col-sm-9">
+                            <input required asp-for="Period" type="text" class="form-control" />
                         </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-form-label">Net Pay as Per Current Salary</label>
-                            <div class="col-sm-9">
-                                <input required type="text" asp-for="NetSalaryAsPerCurrentPaySlip" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-form-label">Income Amount For Client</label>
-                            <div class="col-sm-9">
-                                <input required type="text" asp-for="BasicSalary" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-                <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Draft</a>
-                @*<a asp-action="Create" type="" asp-controller="Loan" class="btn btn-sm btn-success m-2">Submit Loan</a>*@
-                <button class="btn btn-sm btn-success m-2" type="submit">Send</button>
-            </form>
+
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Net Pay as Per Current Salary</label>
+                        <div class="col-sm-9">
+                            <input required type="text" asp-for="NetSalaryAsPerCurrentPaySlip" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Income Amount For Client</label>
+                        <div class="col-sm-9">
+                            <input required type="text" asp-for="BasicSalary" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <a asp-action="Create" class="btn btn-sm btn-success m-2">Save Draft</a>
+            <button class="btn btn-sm btn-success m-2" type="submit">Send</button>
+        </form>
             <div class="row">
                 <div class="col-12 text-right">
                     <button class="btn btn-sm btn-primary m-2" onclick="myFunction()">Calculate Loan</button>
@@ -211,3 +207,5 @@
             });
         });
     </script>*@
+
+
