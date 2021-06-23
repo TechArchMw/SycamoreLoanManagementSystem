@@ -1,0 +1,38 @@
+{
+  "EventType": "GET:https://localhost:44384/Loan/Details/images/Logo.png",
+  "Environment": {
+    "UserName": "user",
+    "MachineName": "DENZEL",
+    "DomainName": "DENZEL",
+    "CallingMethodName": "System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start()",
+    "AssemblyName": "System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "Culture": "en-US"
+  },
+  "StartDate": "2021-06-23T10:34:17.2856455Z",
+  "EndDate": "2021-06-23T10:34:17.2857593Z",
+  "Duration": 0,
+  "Action": {
+    "TraceId": "800000af-0007-f200-b63f-84710c7967bb",
+    "HttpMethod": "GET",
+    "RequestUrl": "https://localhost:44384/Loan/Details/images/Logo.png",
+    "IpAddress": "127.0.0.1",
+    "ResponseStatus": "Not Found",
+    "ResponseStatusCode": 404,
+    "RequestBody": {},
+    "ResponseBody": {
+      "Value": ""
+    },
+    "Headers": {
+      "Accept": "image/webp,*/*",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept-Language": "en-US,en;q=0.5",
+      "Connection": "close",
+      "Cookie": ".AspNetCore.Antiforgery.icxC8GCEQug=CfDJ8CrMT2ZUH7hGs-2wXv-SCzzGveuJZLfZu6v2vI0zPUV_AscsI_pEXMDrhqKEsUXqadnJuMfbBEmQQf-Uk3mvWBEM5G2-Wl-mmyVy3Md0t5FIRBzl-ptcL9MoBLBNJ6veY65nRkAq4Yk3Zd9OjlVKbVA",
+      "Host": "localhost:44384",
+      "Referer": "https://localhost:44384/Loan/Details/2?message=Loan%20Closed%20Successfully",
+      "Te": "trailers",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"
+    },
+    "ResponseHeaders": {}
+  }
+}

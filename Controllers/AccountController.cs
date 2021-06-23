@@ -18,8 +18,8 @@ namespace SycamoreWebApp.Controllers
             {
                 OutputHandler = new OutputHandler
                 {
-                    IsErrorOccured = true,
-                    Message = "Login Failed: Wrong username or password."
+                    IsErrorOccured = false,
+                    
                 }
             };
 
