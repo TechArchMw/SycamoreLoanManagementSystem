@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SycamoreWebApp.DTOs.CustomerStatusDTO>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Countries</h4>
+        <div class="row">
+            <div class="col-12">
+                <table id="order-listing" class="table">
+                    <thead>
+                        <tr>
+                            <th>Status Code</th>
+                            <th>Status Name</th>
+                            <th>Is Active</th>
+                            <th>Create By</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.StatusCode)</td>
+                            <td>@Html.DisplayFor(modelItem => item.StatusName)</td>
+                            @if (item.IsActive == true)
+                            {
+                                <td> <button class="m-2 btn btn-sm btn-success">Active</button></td>
+                            }
+                            else
+                            {
+                                <td> <button class="m-2 btn btn-sm btn-primary">Disabled</button></td>
+                            }
+                            <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@item.StatusCode" class="btn btn-outline-primary m-2">Update</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
