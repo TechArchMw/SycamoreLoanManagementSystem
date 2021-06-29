@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SycamoreWebApp.DTOs.TitleDTO>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Titles</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a asp-action="Create" class="btn btn-sm btn-success m-2">Add Title</a>
+                    </div>
+                </div>
+
+                <table id="order-listing" class="table">
+                    <thead>
+                        <tr>
+                            <th>Title Code</th>
+                            <th>Title Name</th>
+                            <th>Create By</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.TitleCode)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TitleName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                                <td>
+                                    <a asp-action="Update" asp-route-id="@item.TitleCode" class="btn btn-outline-primary m-2">Update</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model SycamoreWebApp.DTOs.TitleDTO
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <form method="post" asp-action="Update" class="form-sample">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Title Code </label>
+                            <div class="col-sm-9">
+                                <input asp-for="TitleCode" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Title Name</label>
+                            <div class="col-sm-9">
+                                <input asp-for="TitleName" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button asp-action="Index" class="btn btn-sm btn-secondary m-2">Back to List</button>
+                        <button type="submit" class="btn btn-sm btn-success m-2">Update</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

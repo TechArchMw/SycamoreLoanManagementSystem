@@ -1,24 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SycamoreWebApp.DTOs;
+using SycamoreWebApp.DTOs.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Net.Http.Formatting;
 using System.Net.Http;
-using SycamoreWebApp.DTOs.General;
-using Audit.WebApi;
+using System.Threading.Tasks;
 
-namespace SycamoreWebApplication.Controllers
+namespace SycamoreWebApp.Controllers
 {
-    [AuditApi(EventTypeName = "{controller}/{action} ({verb})", IncludeResponseBody = true, IncludeRequestBody = true, IncludeModelState = true)]
-    public class LoanTypeController : Controller
+    public class TitleController : Controller
     {
         private readonly IConfiguration _configuration;
-        static readonly string apiUrl = "LoanTypes";
+        static readonly string apiUrl = "Title";
 
         public string BaseUrl
         {
@@ -28,7 +24,7 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public LoanTypeController(IConfiguration configuration)
+        public TitleController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -37,8 +33,8 @@ namespace SycamoreWebApplication.Controllers
         {
             try
             {
-                IEnumerable<LoanTypeDTO> loanTypeDTOs = new List<LoanTypeDTO>();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypes";
+                IEnumerable<TitleDTO> TitleDTOs = new List<TitleDTO>();
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetTitles";
 
                 using (var httpClient = new HttpClient())
                 {
@@ -46,10 +42,10 @@ namespace SycamoreWebApplication.Controllers
                     HttpResponseMessage responseMessage = await httpClient.GetAsync(requestUrl);
                     if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
-                        loanTypeDTOs = await responseMessage.Content.ReadAsAsync<IEnumerable<LoanTypeDTO>>();
+                        TitleDTOs = await responseMessage.Content.ReadAsAsync<IEnumerable<TitleDTO>>();
                     }
                 }
-                return View(loanTypeDTOs);
+                return View(TitleDTOs);
             }
             catch (Exception)
             {
@@ -63,19 +59,20 @@ namespace SycamoreWebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LoanTypeDTO loanTypeDTO)
+        public async Task<IActionResult> Create(TitleDTO TitleDTO)
         {
             try
             {
                 var outputHandler = new OutputHandler();
-                var requestUrl = $"{BaseUrl}{apiUrl}/AddLoanType";
+                var requestUrl = $"{BaseUrl}{apiUrl}/AddTitle";
 
                 using (var httpClient = new HttpClient())
                 {
                     httpClient.BaseAddress = new Uri(requestUrl);
-                    loanTypeDTO.DateCreated = DateTime.UtcNow.AddHours(2);
-                    loanTypeDTO.CreatedBy = "SYSADMIN";
-                    HttpResponseMessage responseMessage = await httpClient.PostAsJsonAsync(requestUrl, loanTypeDTO);
+                    TitleDTO.DateCreated = DateTime.UtcNow.AddHours(2);
+                    TitleDTO.DateModified = DateTime.UtcNow.AddHours(2);
+                    TitleDTO.CreatedBy = "SYSADMIN";
+                    HttpResponseMessage responseMessage = await httpClient.PostAsJsonAsync(requestUrl, TitleDTO);
                     if (responseMessage.StatusCode == HttpStatusCode.Created)
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
@@ -93,13 +90,13 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update(string id)
         {
             try
             {
                 var outputHandler = new OutputHandler();
-                var loanTypeDTO = new LoanTypeDTO();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypeById?id={id}";
+                var TitleDTO = new TitleDTO();
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetTitleById?titleCode={id}";
 
                 using (var httpClient = new HttpClient())
                 {
@@ -108,9 +105,8 @@ namespace SycamoreWebApplication.Controllers
                     if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
-                        var code = outputHandler.Result;
-                        loanTypeDTO = (LoanTypeDTO)outputHandler.Result;
-                        return View(loanTypeDTO);
+                        TitleDTO = (TitleDTO)outputHandler.Result;
+                        return View(TitleDTO);
                     }
                     else
                     {
@@ -125,24 +121,24 @@ namespace SycamoreWebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(LoanTypeDTO loanTypeDTO, int id)
+        public async Task<IActionResult> Update(TitleDTO TitleDTO, string id)
         {
             try
             {
-                if (id != loanTypeDTO.LoanTypeId)
+                if (id != TitleDTO.TitleCode)
                 {
                     return RedirectToAction("Error", "Home");
                 }
 
                 var outputHandler = new OutputHandler();
-                var requestUrl = $"{BaseUrl}{apiUrl}/UpdateLoanType";
+                var requestUrl = $"{BaseUrl}{apiUrl}/UpdateTitle";
 
                 using (var httpClient = new HttpClient())
                 {
                     httpClient.BaseAddress = new Uri(requestUrl);
-                    loanTypeDTO.DateModified = DateTime.UtcNow.AddHours(2);
-                    loanTypeDTO.ModifiedBy = "SYSADMIN_MOD";
-                    HttpResponseMessage responseMessage = await httpClient.PutAsJsonAsync(requestUrl, loanTypeDTO);
+                    TitleDTO.DateModified = DateTime.UtcNow.AddHours(2);
+                    TitleDTO.ModifiedBy = "SYSADMIN_MOD";
+                    HttpResponseMessage responseMessage = await httpClient.PutAsJsonAsync(requestUrl, TitleDTO);
                     if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
@@ -160,13 +156,13 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(string id)
         {
             try
             {
                 var outputHandler = new OutputHandler();
                 var loanTypeDTO = new LoanTypeDTO();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypeById?id={id}";
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetTitleById?titleCode={id}";
 
                 using (var httpClient = new HttpClient())
                 {
