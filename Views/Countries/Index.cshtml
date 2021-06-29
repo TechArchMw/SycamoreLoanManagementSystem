@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SycamoreWebApp.DTOs.CountryDTO>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Countries</h4>
+        <div class="row">
+            <div class="col-12">
+
+                <table id="order-listing" class="table">
+                    <thead>
+                        <tr>
+                            <th>Country Code</th>
+                            <th>Country Name</th>
+                            <th>Numeric Code</th>
+                            <th>Create By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.CountryCode)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CountryName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NumericCode)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

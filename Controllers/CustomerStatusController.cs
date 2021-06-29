@@ -1,24 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SycamoreWebApp.DTOs;
+using SycamoreWebApp.DTOs.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Net.Http.Formatting;
 using System.Net.Http;
-using SycamoreWebApp.DTOs.General;
-using Audit.WebApi;
+using System.Threading.Tasks;
 
-namespace SycamoreWebApplication.Controllers
+namespace SycamoreWebApp.Controllers
 {
-    [AuditApi(EventTypeName = "{controller}/{action} ({verb})", IncludeResponseBody = true, IncludeRequestBody = true, IncludeModelState = true)]
-    public class LoanTypeController : Controller
+    public class CustomerStatusController : Controller
     {
         private readonly IConfiguration _configuration;
-        static readonly string apiUrl = "LoanTypes";
+        static readonly string apiUrl = "CustomerStatus";
 
         public string BaseUrl
         {
@@ -28,7 +24,7 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public LoanTypeController(IConfiguration configuration)
+        public CustomerStatusController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -37,8 +33,8 @@ namespace SycamoreWebApplication.Controllers
         {
             try
             {
-                IEnumerable<LoanTypeDTO> loanTypeDTOs = new List<LoanTypeDTO>();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypes";
+                IEnumerable<CustomerStatusDTO> countryDTOs = new List<CustomerStatusDTO>();
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetCustomerStatuses";
 
                 using (var httpClient = new HttpClient())
                 {
@@ -46,10 +42,10 @@ namespace SycamoreWebApplication.Controllers
                     HttpResponseMessage responseMessage = await httpClient.GetAsync(requestUrl);
                     if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
-                        loanTypeDTOs = await responseMessage.Content.ReadAsAsync<IEnumerable<LoanTypeDTO>>();
+                        countryDTOs = await responseMessage.Content.ReadAsAsync<IEnumerable<CustomerStatusDTO>>();
                     }
                 }
-                return View(loanTypeDTOs);
+                return View(countryDTOs);
             }
             catch (Exception)
             {
@@ -57,29 +53,23 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(LoanTypeDTO loanTypeDTO)
+        public async Task<IActionResult> Details(string id)
         {
             try
             {
                 var outputHandler = new OutputHandler();
-                var requestUrl = $"{BaseUrl}{apiUrl}/AddLoanType";
+                var countryDTO = new CountryDTO();
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetCustomerStatusById?statusCode={id}";
 
                 using (var httpClient = new HttpClient())
                 {
                     httpClient.BaseAddress = new Uri(requestUrl);
-                    loanTypeDTO.DateCreated = DateTime.UtcNow.AddHours(2);
-                    loanTypeDTO.CreatedBy = "SYSADMIN";
-                    HttpResponseMessage responseMessage = await httpClient.PostAsJsonAsync(requestUrl, loanTypeDTO);
-                    if (responseMessage.StatusCode == HttpStatusCode.Created)
+                    HttpResponseMessage responseMessage = await httpClient.GetAsync(requestUrl);
+                    if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
-                        return RedirectToAction(nameof(Index), new { outputHandler.Message });
+                        countryDTO = (CountryDTO)outputHandler.Result;
+                        return View(countryDTO);
                     }
                     else
                     {
@@ -93,13 +83,13 @@ namespace SycamoreWebApplication.Controllers
             }
         }
 
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update(string id)
         {
             try
             {
                 var outputHandler = new OutputHandler();
-                var loanTypeDTO = new LoanTypeDTO();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypeById?id={id}";
+                var customerStatusDTO = new CustomerStatusDTO();
+                var requestUrl = $"{BaseUrl}{apiUrl}/GetCustomerStatusById?id={id}";
 
                 using (var httpClient = new HttpClient())
                 {
@@ -109,8 +99,8 @@ namespace SycamoreWebApplication.Controllers
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
                         var code = outputHandler.Result;
-                        loanTypeDTO = (LoanTypeDTO)outputHandler.Result;
-                        return View(loanTypeDTO);
+                        customerStatusDTO = (CustomerStatusDTO)outputHandler.Result;
+                        return View(customerStatusDTO);
                     }
                     else
                     {
@@ -125,58 +115,28 @@ namespace SycamoreWebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(LoanTypeDTO loanTypeDTO, int id)
+        public async Task<IActionResult> Update(CustomerStatusDTO customerStatusDTO, string id)
         {
             try
             {
-                if (id != loanTypeDTO.LoanTypeId)
+                if (id != customerStatusDTO.StatusCode)
                 {
                     return RedirectToAction("Error", "Home");
                 }
 
                 var outputHandler = new OutputHandler();
-                var requestUrl = $"{BaseUrl}{apiUrl}/UpdateLoanType";
+                var requestUrl = $"{BaseUrl}{apiUrl}/UpdateCustomerStatus";
 
                 using (var httpClient = new HttpClient())
                 {
                     httpClient.BaseAddress = new Uri(requestUrl);
-                    loanTypeDTO.DateModified = DateTime.UtcNow.AddHours(2);
-                    loanTypeDTO.ModifiedBy = "SYSADMIN_MOD";
-                    HttpResponseMessage responseMessage = await httpClient.PutAsJsonAsync(requestUrl, loanTypeDTO);
+                    customerStatusDTO.DateModified = DateTime.UtcNow.AddHours(2);
+                    customerStatusDTO.ModifiedBy = "SYSADMIN_MOD";
+                    HttpResponseMessage responseMessage = await httpClient.PutAsJsonAsync(requestUrl, customerStatusDTO);
                     if (responseMessage.StatusCode == HttpStatusCode.OK)
                     {
                         outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
                         return RedirectToAction(nameof(Index), new { outputHandler.Message });
-                    }
-                    else
-                    {
-                        return RedirectToAction("Error", "Home", new { outputHandler.Message });
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-        }
-
-        public async Task<IActionResult> Details(int id)
-        {
-            try
-            {
-                var outputHandler = new OutputHandler();
-                var loanTypeDTO = new LoanTypeDTO();
-                var requestUrl = $"{BaseUrl}{apiUrl}/GetLoanTypeById?id={id}";
-
-                using (var httpClient = new HttpClient())
-                {
-                    httpClient.BaseAddress = new Uri(requestUrl);
-                    HttpResponseMessage responseMessage = await httpClient.GetAsync(requestUrl);
-                    if (responseMessage.StatusCode == HttpStatusCode.OK)
-                    {
-                        outputHandler = await responseMessage.Content.ReadAsAsync<OutputHandler>();
-                        loanTypeDTO = (LoanTypeDTO)outputHandler.Result;
-                        return View(loanTypeDTO);
                     }
                     else
                     {

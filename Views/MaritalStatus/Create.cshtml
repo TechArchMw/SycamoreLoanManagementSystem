@@ -1,0 +1,48 @@
+﻿@model SycamoreWebApp.DTOs.MaritalStatusDTO
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Marital Status</h4>
+            <form method="post" asp-action="Create" class="form-sample">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Marital Status</label>
+                            <div class="col-sm-9">
+                                <input asp-for="MaritalStatusDescription" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-radio">
+                            <label class="form-check-label">
+                                <input asp-for="IsActive" type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                                Activate
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-radio">
+                            <label class="form-check-label">
+                                <input asp-for="IsArchived" type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                                Archive
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <button asp-action="Index" class="btn btn-sm btn-secondary m-2">Back to List</button>
+                        <button type="submit" class="btn btn-sm btn-success m-2">Save</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
