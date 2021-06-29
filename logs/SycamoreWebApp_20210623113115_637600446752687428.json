@@ -1,0 +1,32 @@
+{
+  "EventType": "LoanType/Index (GET)",
+  "Environment": {
+    "UserName": "user",
+    "MachineName": "DENZEL",
+    "DomainName": "DENZEL",
+    "CallingMethodName": "SycamoreWebApplication.Controllers.LoanTypeController.Index()",
+    "AssemblyName": "SycamoreWebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "Exception": "COMException: 0xE0434352",
+    "Culture": "en-US"
+  },
+  "StartDate": "2021-06-23T11:31:10.9470438Z",
+  "EndDate": "2021-06-23T11:31:15.2663755Z",
+  "Duration": 4319,
+  "Action": {
+    "TraceId": "800000b0-0006-f500-b63f-84710c7967bb",
+    "HttpMethod": "GET",
+    "ControllerName": "LoanType",
+    "ActionName": "Index",
+    "ActionParameters": {},
+    "RequestUrl": "https://localhost:44384/LoanType/Index",
+    "IpAddress": "127.0.0.1",
+    "ResponseStatus": "OK",
+    "ResponseStatusCode": 200,
+    "RequestBody": {},
+    "ResponseBody": {
+      "Type": "RedirectToActionResult",
+      "Value": "Error"
+    },
+    "ModelStateValid": true
+  }
+}

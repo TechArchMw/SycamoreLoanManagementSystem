@@ -173,10 +173,14 @@
             else if (Model.loanStatusId == 7)
             {
                 <a class="m-2 btn btn-sm btn-secondary " asp-route-loanId="@Model.LoanId" asp-action="ReviewLoan">Mark as Reviewed</a>
-             }
+            }
+            else if (Model.loanStatusId == 5)
+            {
+                <a class="m-2 btn btn-sm btn-success" asp-route-loanId="@Model.LoanId" asp-action="ApproveLoan">Approve</a>
+            }
             @*<input type="submit" value="Submit" />*@
 
-            
+
             <a class="m-2 btn btn-sm btn-success" asp-action="Index">Back to List</a>
         </div>
     </div>
