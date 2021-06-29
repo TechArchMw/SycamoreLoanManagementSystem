@@ -62,6 +62,15 @@ namespace SycamoreWebApp.Controllers
                 loan.OutputHandler = output;
                 return View(loan);
             }
+
+            #region loanCalculation
+
+            loan.TotalLoanAmount = loan.Amount + (loan.Amount * 15/100 );
+
+            #endregion
+
+
+
             loan.DateCreated = DateTime.UtcNow.AddHours(2);
             loan.CreatedBy = "Sys";
             loan.LoanTypeId = 1; //the only available loanType in the DB = Mizu 

@@ -27681,13 +27681,14 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 .auth.login-full-bg {
-  background: url("https://placehold.it/1368x961");
-  background-size: cover;
+    background: url("../../images/Logo1.png");
+    ;
+    background-size: cover;
 }
 
 .auth .login-half-bg {
-  background: url("https://placehold.it/515x557");
-  background-size: cover;
+    background: url("../../images/Logo1.png");
+    background-size: cover;
 }
 
 .auth.register-full-bg {

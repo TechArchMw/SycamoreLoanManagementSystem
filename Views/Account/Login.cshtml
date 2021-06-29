@@ -1,0 +1,118 @@
+﻿@model SycamoreWebApp.DTOs.AuthenticationDTO
+
+@{ Layout = null;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - SycamoreLTD</title>
+    <link rel="stylesheet" href="~/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/vendors/puse-icons-feather/feather.css">
+    <link rel="stylesheet" href="~/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="~/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/vendors/jquery-bar-rating/css-stars.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+
+
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <!-- End plugin css for this page -->
+
+    <link rel="stylesheet" href="~/vendors/icheck/skins/all.css">
+    <link rel="stylesheet" href="~/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth">
+                <div class="row w-100">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="row">
+                            <div class="col-lg-6 bg-white">
+                                <div class="auth-form-light text-left p-5">
+                                    <h2>Login</h2>
+                                    @if (Model.OutputHandler.IsErrorOccured)
+                                    {
+                                        <p class="text-danger"> @Model.OutputHandler.Message</p>
+                                    }
+                                    <form class="pt-5" method="post" asp-action="Login">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Username</label>
+                                            <input type="text" class="form-control" asp-for="Username" placeholder="Username">
+                                            <i class="mdi mdi-account"></i>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+                                            <i class="mdi mdi-eye"></i>
+                                        </div>
+                                        <div class="mt-5">
+                                            <input type="submit" class="btn btn-block btn-success btn-lg font-weight-medium" value="Login" />
+                                        </div>
+                                        <div class="mt-3 text-center">
+                                            <a href="#" class="auth-link text-black">Forgot password?</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 login-half-bg d-flex flex-row">
+                                    <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="~/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+    <script src="~/vendors/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/vendors/progressbar.js/progressbar.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/misc.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/js/dashboard.js"></script>
+
+    @*List Page Specific JS*@
+    <script src="~/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/js/data-table.js"></script>
+
+    @*create paje Specific  JS*@
+    <script src="~/js/file-upload.js"></script>
+    <script src="~/js/iCheck.js"></script>
+    <script src="~/js/typeahead.js"></script>
+    <script src="~/js/select2.js"></script>
+
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>

@@ -15,10 +15,10 @@
                 <table id="order-listing" class="table">
                     <thead>
                         <tr>
-                            <th>Loan ID</th>
+                             
                             <th>Loan Type</th>
                             <th>Customer</th>
-                            <th>Loan Amount</th>
+                            <th>Total Capital Amount</th>
                             <th>Interest</th>
                             <th>Admin Fee</th>
                             <th>Status</th>
@@ -29,11 +29,9 @@
                         @foreach (var item in Model)
                         {
                         <tr>
-
-                            <td>@item.LoanId</td>
                             <td>@item.LoanTypeDTO.LoanDescription</td>
                             <td>@item.CustomerName</td>
-                            <td>@item.Amount</td>
+                            <td>@item.TotalLoanAmount</td>
                             <td>@item.LoanTypeDTO.Interest</td>
                             <td>@item.LoanTypeDTO.AdminFee</td>
                             <td>

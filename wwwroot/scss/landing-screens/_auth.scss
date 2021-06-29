@@ -1,12 +1,12 @@
 /* Auth */
 .auth {
 	&.login-full-bg {
-		background: url("https://placehold.it/1368x961");
+		background: url("../../images/Logo1.png");
 		background-size: cover;
 	}
 
 	.login-half-bg {
-		background: url("https://placehold.it/515x557");
+		background: url("../../images/Logo1.png");
 		background-size: cover;
 	}
 
@@ -38,6 +38,7 @@
 		.form-control {
 			border-color: rgba($white, .2);
 			color: $white;
+
 			@include input-placeholder {
 				color: $white;
 			}
@@ -51,6 +52,7 @@
 		.form-control {
 			border-color: rgba($black, .2);
 			color: $black;
+
 			@include input-placeholder {
 				color: $black;
 			}

@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Customer Name</label>
+                        <label class="col-sm-12 col-form-label">Customer Name</label>
                         <div class="col-sm-12 font-weight-bold">
                             @Model.CustomerName
                         </div>
@@ -158,7 +158,7 @@
             @if (Model.loanStatusId == 1)
             {
                 <a class="m-2 btn btn-sm btn-secondary " asp-route-loanId="@Model.LoanId" asp-action="ReviewLoan">Mark as Reviewed</a>
-                <a class="m-2 btn btn-sm btn-success" asp-route-loanId="@Model.LoanId" asp-action="ApproveLoan">Approved</a>
+                <a class="m-2 btn btn-sm btn-success" asp-route-loanId="@Model.LoanId" asp-action="ApproveLoan">Approve</a>
                 <a class="m-2 btn btn-sm btn-danger" asp-route-loanId="@Model.LoanId" asp-action="RejectLoan">Reject</a>
                 <a class="m-2 btn btn-sm btn-primary" asp-route-loanId="@Model.LoanId" asp-action="CloseLoan">Closed</a>
             }
